@@ -1,1 +1,1 @@
-# ci4_pagseguro
+# CI4 - Integração com PagSeguro
