@@ -8,7 +8,10 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url(); ?>">Carrinho</a>
+                    <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url('carrinho'); ?>">Carrinho</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('transacoes'); ?>">Transações</a>

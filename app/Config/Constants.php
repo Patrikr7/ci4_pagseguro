@@ -77,11 +77,3 @@ defined('EXIT_USER_INPUT') || define('EXIT_USER_INPUT', 7); // invalid user inpu
 defined('EXIT_DATABASE') || define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN') || define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX') || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
-
-// DADOS PAGSEGURO
-defined('PAG_ENV') || define('PAG_ENV', 'sandbox');
-defined('PAG_EMAIL') || define('PAG_EMAIL', 'patrikr11@gmail.com');
-defined('PAG_TOKEN') || define('PAG_TOKEN', '4686A1B6830841E09B4BCD068EE301B3');
-defined('PAG_ID') || define('PAG_ID', '');
-defined('PAG_KEY') || define('PAG_KEY', '');
-defined('PAG_LOG') || define('PAG_LOG', WRITEPATH . "logs\pagseguro\log.log");

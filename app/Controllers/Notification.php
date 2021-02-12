@@ -21,7 +21,7 @@ class Notification extends BaseController
 					'status' => $response->getStatus()
 				];
 
-				(new TransactionModel())->save($dados);
+				(new TransactionModel())->update($response->getReference(), $dados);
 
 			else:
 				throw new \InvalidArgumentException($_POST);

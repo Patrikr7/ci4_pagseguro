@@ -32,10 +32,10 @@ class Database extends Config
 	 */
 	public $default = [
 		'DSN'      => '',
-		'hostname' => 'localhost',
-		'username' => 'root',
-		'password' => 'senac',
-		'database' => 'ci4_pagseguro',
+		'hostname' => HOSTNAME,
+		'username' => USERNAME,
+		'password' => PASSWORD,
+		'database' => DATABASE,
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => 'tb_',
 		'pConnect' => false,

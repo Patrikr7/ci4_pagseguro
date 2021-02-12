@@ -23,7 +23,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $baseURL = 'http://localhost/Codeigniter4/ci4_pagseguro/public/';
+	public $baseURL = BASE_URL;
 
 	/**
 	 * --------------------------------------------------------------------------

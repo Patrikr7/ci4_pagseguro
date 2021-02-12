@@ -9,6 +9,7 @@
                 <table class="table table-hover table-bordered table-striped">
                     <thead>
                         <tr>
+                            <th scope="col">Cód. Referência</th>
                             <th scope="col">Código</th>
                             <th scope="col">Data</th>
                             <th scope="col">Valor</th>
@@ -18,6 +19,7 @@
                     <tbody>
                         <?php foreach ($transactions as $transaction): ?>
                             <tr>
+                                <th><?php echo $transaction->getReference(); ?></th>
                                 <th><?php echo $transaction->getCode(); ?></th>
                                 <td><?php echo date('d/m/Y', strtotime($transaction->getDate())); ?></td>
                                 <td>R$ <?php echo number_format($transaction->getGrossAmount(), 2,',', '.'); ?></td>
