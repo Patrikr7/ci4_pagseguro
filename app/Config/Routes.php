@@ -32,7 +32,10 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::index', ['as' => 'home']);
+$routes->get('transacoes', 'Home::transactions', ['as' => 'transactions']);
+$routes->post('notification', 'Notification::index', ['as' => 'notification']);
+$routes->post('fechar', 'Home::close', ['as' => 'close']);
 
 /*
  * --------------------------------------------------------------------

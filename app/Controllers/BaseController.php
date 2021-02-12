@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Libraries\{Template, Uuid};
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -27,7 +28,9 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = [];
+	protected $helpers = ['html', 'form', 'text', 'functions_helper'];
+	protected $template;
+	protected $uuid;
 
 	/**
 	 * Constructor.
@@ -45,5 +48,18 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
+
+		// PAGSEGURO
+		\PagSeguro\Library::initialize();
+		\PagSeguro\Library::cmsVersion()->setName('CI4-PAG')->setRelease('1.0.0');
+		\PagSeguro\Library::moduleVersion()->setName('CI4-PAG')->setRelease('1.0.0');
+		\PagSeguro\Configuration\Configure::setEnvironment(PAG_ENV);
+		\PagSeguro\Configuration\Configure::setAccountCredentials(PAG_EMAIL, PAG_TOKEN);
+		\PagSeguro\Configuration\Configure::setCharset('UTF-8');
+		\PagSeguro\Configuration\Configure::setLog(true, PAG_LOG);
+
+		// LIBRARIES
+		$this->template = new Template();
+		$this->uuid = new Uuid();
 	}
 }

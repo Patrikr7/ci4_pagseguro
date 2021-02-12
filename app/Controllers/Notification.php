@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Models\TransactionModel;
+
+class Notification extends BaseController
+{
+	public function index()
+	{
+		header("access-control-allow-origin: https://sandbox.pagseguro.uol.com.br");
+
+		try{
+			if(\PagSeguro\Helpers\Xhr::hasPost()):
+				$response = \PagSeguro\Services\Transactions\Notification::check(
+					\PagSeguro\Configuration\Configure::getAccountCredentials()
+				);
+
+				$dados = [
+					'code' => $response->getCode(),
+					'status' => $response->getStatus()
+				];
+
+				(new TransactionModel())->save($dados);
+
+			else:
+				throw new \InvalidArgumentException($_POST);
+			endif;
+		}catch (\Exception $e){
+			die($e->getMessage());
+		}
+	}
+}
