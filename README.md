@@ -18,7 +18,7 @@ defined('PAG_TOKEN') || define('PAG_TOKEN', 'seu_token_sandbox_ou_production');
 ```
 - Primeiro bloco é a configuração do seu banco de dados e o segundo bloco é a configuração do seu PagSeguro (Sandbox ou Production).
 
-2º Após ter feito a configuração do banco de dados, abra seu terminal e acesse o projeto. Em seguida execute os comando abaixo:
+2º Após ter feito a configuração do banco de dados, abra seu terminal e acesse o projeto. Em seguida execute os comandos abaixo:
  ```bash
  // Migra todas as tabelas já prontas
  php spark migrate
