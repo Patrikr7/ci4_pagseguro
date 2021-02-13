@@ -2,6 +2,8 @@
 # Operating Specific Junk Files
 #-------------------------
 
+app/Config/Constants/
+
 # OS X
 .DS_Store
 .AppleDouble
@@ -124,5 +126,3 @@ nb-configuration.xml
 /results/
 /phpunit*.xml
 /.phpunit.*.cache
-
-app/Config/Constants/
