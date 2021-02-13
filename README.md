@@ -29,8 +29,13 @@ defined('PAG_TOKEN') || define('PAG_TOKEN', 'seu_token_sandbox_ou_production');
   php spark db:seed ProductsSeeder
   ```
   
-  3º No arquivo 'app/Views/web/cart.php' alterar o input email para o email do 'Comprador de Testes':
-  ```bash
-  <input type="email" class="form-control" id="input-email" name="email" value="email-comprador-de-teste@sandbox.pagseguro.com.br">
-  ```
+3º No arquivo 'app/Views/web/cart.php' alterar o input email para o email do 'Comprador de Testes':
+```bash
+<input type="email" class="form-control" id="input-email" name="email" value="email-comprador-de-teste@sandbox.pagseguro.com.br">
+```
+4º Caso necessite usar o próprio servidor interno do framework, abre o terminal e digite o comando abaixo:
+ ```bash
+ php spark serve
+ ```
+ - Após este comando, acesse o projeto assim http://localhost:8080
   
