@@ -38,4 +38,13 @@ defined('PAG_TOKEN') || define('PAG_TOKEN', 'seu_token_sandbox_ou_production');
  php spark serve
  ```
  - Após este comando, acesse o projeto assim http://localhost:8080
-  
+ 
+5º Acesse a página sandbox do PagSeguro para fazer as configurações:
+- https://sandbox.pagseguro.uol.com.br/vendedor/configuracoes.html
+    * Notificação de Transações: Essa configuração permite que seu sistema seja avisado sempre que uma transação muda de estado.
+        * Url do projeto, exemplo: http://localhost:8080/notification
+    * Página de redirecionamento: Ao final do pagamento você pode configurar uma página para redirecionarmos o seu cliente.
+        *   A. Página fixa de redirecionamento
+            * Url do projeto, exemplo: http://localhost:8080/transacao
+        *   B. Redirecionamento com o código da transação
+            * Ao redirecionar o cliente para sua página, já podemos enviar o código da transação no PagSeguro, você pode escolher qual será o nome desse parâmetro. (Escolha o parâmetro: transaction_id)
