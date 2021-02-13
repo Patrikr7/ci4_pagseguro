@@ -26,6 +26,6 @@ defined('PAG_TOKEN') || define('PAG_TOKEN', 'seu_token_sandbox_ou_production');
  - Em seguida:
   ```bash
   // Irá popular as tabelas do banco de dados
-  php spark sb:seed ProductsSeeder
+  php spark db:seed ProductsSeeder
   ```
   
