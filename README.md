@@ -54,3 +54,5 @@ defined('PAG_TOKEN') || define('PAG_TOKEN', 'seu_token_sandbox_ou_production');
 
 7º As transações:
 - https://sandbox.pagseguro.uol.com.br/transacoes.html
+
+Este projeto foi desenvolvido seguindo as aulas do canal Dicas Codeigniter no Youtube e acrescentando algumas melhorias.
