@@ -7,6 +7,10 @@ use PagSeguro\Domains\Requests\Payment;
 
 class Home extends BaseController
 {
+	/**
+	 * Acesso a página principal
+	 * @return mixed
+	 */
 	public function index()
 	{
 		$dados = [
@@ -16,6 +20,11 @@ class Home extends BaseController
 
 		return $this->template->load('web/template/template', 'web/home', $dados);
 	}
+
+	/**
+	 * Acesso a página de carrinho
+	 * @return mixed
+	 */
 	public function cart()
 	{
 		$dados = [
@@ -26,6 +35,12 @@ class Home extends BaseController
 		return $this->template->load('web/template/template', 'web/cart', $dados);
 	}
 
+	/**
+	 * Faz o processamento inserindo os produtos no PagSeguro
+	 * em seguida gera o link de pagamento redirecionando para
+	 * a página com o botão
+	 * @return \CodeIgniter\HTTP\RedirectResponse
+	 */
 	public function purchase()
 	{
 		$transactionsModel = new TransactionModel();
@@ -57,16 +72,6 @@ class Home extends BaseController
 				$payment->setSender()->setEmail($post['email']);
 				$payment->setSender()->setPhone()->withParameters($post['ddd'], clean($post['tel']));
 				$payment->setSender()->setDocument()->withParameters('CPF', clean($post['cpf']));
-				/*$payment->setShipping()->getAddress()->withParameters(
-					'Rua Domingos Diegues',
-					'2025',
-					'Santa Felicia',
-					'13563303',
-					'São Carlos',
-					'SP',
-					'BRA',
-					'Casa'
-				);*/
 
 				try {
 					$link = $payment->register(

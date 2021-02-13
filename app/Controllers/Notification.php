@@ -6,6 +6,10 @@ use App\Models\TransactionModel;
 
 class Notification extends BaseController
 {
+	/**
+	 * Quando tiver mudança do pagamento
+	 * atualiza no banco de dados o status
+	 */
 	public function index()
 	{
 		header("access-control-allow-origin: https://sandbox.pagseguro.uol.com.br");

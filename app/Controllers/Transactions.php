@@ -4,6 +4,10 @@ namespace App\Controllers;
 
 class Transactions extends BaseController
 {
+	/**
+	 * Página com todas transações direto do PagSeguro
+	 * @return \CodeIgniter\HTTP\RedirectResponse
+	 */
 	public function index()
 	{
 		$options = [
@@ -31,9 +35,13 @@ class Transactions extends BaseController
 		}
 	}
 
+	/**
+	 * Página que será será redirecionado após o pagamento
+	 * visualizando as informações do pagamento
+	 * @return \CodeIgniter\HTTP\RedirectResponse
+	 */
 	public function transactionId()
 	{
-		// http://localhost/Codeigniter4/ci4_pagseguro/public/transacao?transaction_id=879DE4C6-1A9C-466E-BC49-8BC369C39A89
 		try {
 			$response = \PagSeguro\Services\Transactions\Search\Code::search(
 				\PagSeguro\Configuration\Configure::getAccountCredentials(),
