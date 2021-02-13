@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <label for="input-email">Email</label>
                             <input type="email" class="form-control" id="input-email" name="email"
-                                   value="c74839009654401324677@sandbox.pagseguro.com.br">
+                                   value="email-comprador-teste@sandbox.pagseguro.com.br">
                         </div>
                     </div>
                     <div class="col-md-6">
