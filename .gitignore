@@ -1,8 +1,8 @@
+app/Config/Constants/Constants.php
+
 #-------------------------
 # Operating Specific Junk Files
 #-------------------------
-
-app/Config/Constants/
 
 # OS X
 .DS_Store
