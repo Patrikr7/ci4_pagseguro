@@ -29,3 +29,8 @@ defined('PAG_TOKEN') || define('PAG_TOKEN', 'seu_token_sandbox_ou_production');
   php spark db:seed ProductsSeeder
   ```
   
+  3º No arquivo 'app/Views/web/cart.php' alterar o input email para o email do 'Comprador de Testes':
+  ```bash
+  <input type="email" class="form-control" id="input-email" name="email" value="c74839009654401324677@sandbox.pagseguro.com.br">
+  ```
+  
