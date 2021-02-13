@@ -48,3 +48,9 @@ defined('PAG_TOKEN') || define('PAG_TOKEN', 'seu_token_sandbox_ou_production');
             * Url do projeto, exemplo: http://localhost:8080/transacao
         *   B. Redirecionamento com o código da transação
             * Ao redirecionar o cliente para sua página, já podemos enviar o código da transação no PagSeguro, você pode escolher qual será o nome desse parâmetro. (Escolha o parâmetro: transaction_id)
+         
+6º Os dados do comprador de teste está na página: 
+- https://sandbox.pagseguro.uol.com.br/comprador-de-testes.html
+
+7º As transações:
+- https://sandbox.pagseguro.uol.com.br/transacoes.html
