@@ -47,5 +47,4 @@
             }
         });
     });
-    //PagSeguroLightbox('<php echo $result->getCode(); ?>');
 </script>

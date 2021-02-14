@@ -102,7 +102,7 @@ class Home extends BaseController
 				} catch (\Exception $e) {
 					$transactionsModel->delete($idReference);
 					session()->setFlashData('msg', $e->getMessage());
-					return redirect()->route('home');
+					return redirect()->route('home'); 
 				}
 			} catch (\Exception $e) {
 				session()->setFlashData('msg', $e->getMessage());
