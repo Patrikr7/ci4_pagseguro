@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Models\{ProductsModel, TransactionModel};
+use App\Models\{
+	ProductsModel, TransactionModel
+};
 use PagSeguro\Domains\Requests\Payment;
 
 class Home extends BaseController
@@ -63,7 +65,7 @@ class Home extends BaseController
 				);
 			endforeach;
 
-			try{
+			try {
 				$transactionsModel->save(['status' => 1]);
 				$idReference = $transactionsModel->insertID();
 
@@ -73,14 +75,26 @@ class Home extends BaseController
 				$payment->setSender()->setPhone()->withParameters($post['ddd'], clean($post['tel']));
 				$payment->setSender()->setDocument()->withParameters('CPF', clean($post['cpf']));
 
+				$payment->setRedirectUrl(base_url());
+				$payment->setNotificationUrl(base_url('nofitication'));
+
 				try {
 					$link = $payment->register(
 						\PagSeguro\Configuration\Configure::getAccountCredentials()
 					);
 
+					$onlyCheckoutCode = true;
+					$result = $payment->register(
+						\PagSeguro\Configuration\Configure::getAccountCredentials(),
+						$onlyCheckoutCode
+					);
+
 					$dados = [
-						'title' => 'Efetuar pagamento',
-						'link'  => $link,
+						'title'  => 'Efetuar pagamento',
+						'link'   => $link,
+						'result' => $result,
+						'javascript' => (PAG_ENV === 'sandbox' ? 'https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js' : 'https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js'),
+						'location' => (PAG_ENV === 'sandbox' ? 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=' : 'https://pagseguro.uol.com.br/v2/checkout/payment.html?code='),
 					];
 
 					return $this->template->load('web/template/template', 'web/payment', $dados);
@@ -90,7 +104,7 @@ class Home extends BaseController
 					session()->setFlashData('msg', $e->getMessage());
 					return redirect()->route('home');
 				}
-			}catch (\Exception $e){
+			} catch (\Exception $e) {
 				session()->setFlashData('msg', $e->getMessage());
 				return redirect()->route('home');
 
